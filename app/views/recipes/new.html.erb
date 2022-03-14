@@ -4,14 +4,14 @@
   <div class="row form ml-4">
     <div class= "form-group d-flex mb-4" >
       <%= f.label "Title:", class: "col-sm-2 col-form-label text-end mx-4" %> 
-      <div class = "col-sm-6" >
+      <div class = "col-sm-7" >
       <%= f.text_field :name,   class:"form-control", placeholder: "Recipe name", autofocus: true %>
       </div>
     </div>
 
     <div class= "form-group d-flex" >
       <%= f.label "Description:", class: "col-sm-2 col-form-label text-end mx-4" %> 
-      <div class = "col-sm-6" >
+      <div class = "col-sm-7" >
       <%= f.text_area :description, rows: 4,   class:"form-control", placeholder: "Description of the recipe", autofocus: true %>
       </div>
     </div>
@@ -19,14 +19,14 @@
 
     <div class= "form-group d-flex my-4" >
       <%= f.label "Preparation time (min):", class: "col-sm-2 col-form-label text-end mx-4" %> 
-      <div class = "col-sm-3" >
+      <div class = "col-sm-2" >
       <%= f.number_field :preparation_time,   class:"form-control", autofocus: true %>
       </div>
     </div>
 
     <div class= "form-group d-flex" >
       <%= f.label "Cooking time (min):", class: "col-sm-2 col-form-label text-end mx-4" %> 
-      <div class = "col-sm-3" >
+      <div class = "col-sm-2" >
       <%= f.number_field :cooking_time,   class:"form-control", autofocus: true %>
       </div>
     </div>

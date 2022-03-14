@@ -1,7 +1,5 @@
 class RecipesController < ApplicationController
-
-  def index
-  end
+  def index; end
 
   def new
     @recipe = Recipe.new
@@ -14,13 +12,11 @@ class RecipesController < ApplicationController
       flash[:success] = 'Recipe was succesfully created'
       redirect_to recipes_path
     else
-       render 'new'
+      render 'new'
     end
   end
 
-  def destroy
-
-  end
+  def destroy; end
 
   def show
     @recipe = Recipe.find(params[:id])
@@ -28,9 +24,7 @@ class RecipesController < ApplicationController
 
   private
 
-
   def recipe_params
     params.require(:recipe).permit(:name, :description, :public, :cooking_time, :preparation_time)
   end
-
 end

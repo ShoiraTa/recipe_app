@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   def show
     sign_out :user
-    redirect_to 
+    redirect_to
   end
+
   def index
     @users = User.all
   end
