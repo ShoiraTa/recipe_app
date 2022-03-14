@@ -15,8 +15,8 @@
 # gem "pg"
 #
 default: &default
-  username: postgres
-  password: 777KData
+  # username: postgres
+  # password: 777KData
   adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
