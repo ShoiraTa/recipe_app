@@ -5,7 +5,8 @@ import "controllers"
 //= require popper
 //= require bootstrap-sprockets
 //= require jquery
-//= require jquery-ui
+//= require jquery-ui 
+//= require jquery_ujs
 
 
 //= require jquery_ujs
