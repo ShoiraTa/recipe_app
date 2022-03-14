@@ -1,5 +1,4 @@
-class Recipe  < ActiveRecord::Base
+class Recipe < ActiveRecord::Base
   belongs_to :user
   has_many :recipe_foods
-  
 end
