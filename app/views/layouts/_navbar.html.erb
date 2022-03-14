@@ -4,14 +4,18 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-    </ul>
+<div class="w-full d-flex justify-content-between px-4" id="navbarSupportedContent">
+  <% if user_signed_in? %>
+  <ul class="navbar-nav mr-auto">
+    <li> <%= link_to 'Home', root_path, class: 'nav-link' %></li> 
+    <li> <%= link_to 'New recipe', new_user_recipe_path(user_id: current_user.id), class: 'nav-link' %></li> 
+    <li> <%= link_to 'My Recipes', user_recipes_path(user_id: current_user.id), class: 'nav-link' %></li> 
+  </ul>
+
+  <ul class="navbar-nav mr-auto">
+    <li><%= link_to "Log out", destroy_user_session_path, :method => :delete, class: 'nav-link' %></li>
+  </ul>
+
+  <% end %>
   </div>
 </nav>
