@@ -1,3 +1,36 @@
 <h1 class='text-center mb-3'> Foods </h1>
 
 
+    <div class = 'd-flex flex-column margin-auto justify-content-center'>
+
+        <div class='align-center p-5' > <%= button_to 'New food', new_user_food_path(user_id: current_user.id), class: 'btn btn-primary text-center' %></div> 
+
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Food</th>
+            <th scope="col">Measurement Unit</th>
+            <th scope="col">Price</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <% current_user.foods.each do |food| %>
+            <tr>
+            <td><%= food.name %></td>
+            <td><%= food.measurement_unit %></td>
+            <td><%= food.price %></td>
+            <%= button_to "Delete", user_foods_path(current_user.id, food), method: :delete, 
+                    data: {confirm: 'Are you sure that you want to delete this article?'}, class: "btn btn-primary" %>
+            
+            </tr>
+            <% end %>
+        </tbody>
+
+        </table>
+
+    </div>
+
+
+
