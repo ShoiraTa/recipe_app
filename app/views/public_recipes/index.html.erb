@@ -4,6 +4,7 @@
     <div class="col-4  border-end border-2"> 
       <h3 class="my-3 pb-2"> <%= recipe.name %> </h3>
       <p> By: <%= recipe.user.email %> </p>
+      <%= link_to 'See this recipe', user_recipe_path( recipe.user.id, recipe.id  ) %>
     </div>
 
     <div class="col d-flex align-items-center px-4">

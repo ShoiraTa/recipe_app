@@ -3,12 +3,12 @@
 <div class = "col-6 mx-auto">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field form-group d-flex ">
-    <%= f.label "Email:", class: "col-sm-2 col-form-label text-start mx-4" %><br />
+    <%= f.label :email, class: "col-sm-2 col-form-label text-start mx-4" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email",   class:"form-control" %>
   </div>
 
   <div class="field form-group d-flex my-3">
-    <%= f.label "Password:",class: "col-sm-2 col-form-label text-start mx-4" %><br />
+    <%= f.label :password,class: "col-sm-2 col-form-label text-start mx-4" %><br />
     <%= f.password_field :password, autocomplete: "current-password",   class:"form-control" %>
   </div>
 
