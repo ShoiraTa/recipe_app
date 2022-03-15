@@ -3,9 +3,8 @@ require 'rails_helper'
 RSpec.describe 'User index page', type: :feature do
   describe 'login' do
     before(:each) do
-      User.create!  password: '123456', email: 'user@email.com'       
+      User.create! password: '123456', email: 'user@email.com'
       visit '/users/sign_in'
-
     end
 
     scenario 'Login user page renders correctly' do
@@ -27,6 +26,5 @@ RSpec.describe 'User index page', type: :feature do
       click_button 'Log in'
       expect(page).to have_content('Public recipes')
     end
-
   end
 end
