@@ -10,6 +10,7 @@
     <li> <%= link_to 'Home', root_path, class: 'nav-link' %></li> 
     <li> <%= link_to 'New recipe', new_user_recipe_path(user_id: current_user.id), class: 'nav-link' %></li> 
     <li> <%= link_to 'My Recipes', user_recipes_path(user_id: current_user.id), class: 'nav-link' %></li> 
+    <li> <%= link_to 'Foods', foods_path, class: 'nav-link' %> </li>
   </ul>
 
   <ul class="navbar-nav mr-auto">

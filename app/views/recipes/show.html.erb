@@ -1,4 +1,8 @@
-<h1 class="text-center"> <%= @recipe.name %></h1>
+
+  <div class='col-sm-7 pb-2 mx-auto'>
+  <h1 > <%= @recipe.name %></h1> 
+    <small >by <%= @recipe.user.email %> </small> 
+  </div>
 <div class="col-sm-7 border m-auto p-4"> 
 <div class="d-flex justify-content-between">
   <h4 class="py-3">Preparation time: <%= @recipe.preparation_time %> min</h4>
