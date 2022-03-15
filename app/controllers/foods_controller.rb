@@ -22,9 +22,9 @@ class FoodsController < ApplicationController
 
     def destroy
         @food = Food.find_by(id: params[:id])
-        @food.destroy        
+        @food.destroy
         flash[:success] = 'Food deleted'
-        redirect_to foods_path
+        redirect_to foods_path 
     end
 
     private
