@@ -26,7 +26,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe_foods = RecipeFood.where(recipe_id: @recipe.id)
     render recipes_path unless (@recipe.public == true) || (@recipe.user_id == current_user.id)
-    
   end
 
   private
