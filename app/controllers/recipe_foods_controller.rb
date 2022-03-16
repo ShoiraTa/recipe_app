@@ -1,13 +1,20 @@
 class RecipeFoodsController < ApplicationController
 
+  def new
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipeFood = RecipeFood.new
+  end
+
   def create
+    debugger
     @recipeFood = RecipeFood.new(recipeFood_params)
-    @recipeFood.user_id = current_user.id
+    @recipeFood.recipe_id = Recipe.find(params[:recipe_id])
+    @recipeFood.food_id = Food.find(params[:food_id])
     if @recipeFood.save
       flash[:success] = 'RecipeFood was succesfully created'
-      redirect_to recipeFoods_path
+      redirect_to root
     else
-      render 'new'
+      redirect_to root
     end
 
   end
@@ -15,7 +22,7 @@ class RecipeFoodsController < ApplicationController
   private
 
   def recipeFood_params
-    params.require(:recipeFood).permit(:name, :description, :public, :cooking_time, :preparation_time)
+    params.require(:recipeFood).permit(:quantity)
   end
   
 end

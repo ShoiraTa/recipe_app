@@ -9,12 +9,15 @@ Rails.application.routes.draw do
 
   resources :public_recipes, only: [:index]
   resources :shopping_list, only: [:index]
+  
 
   # resources :foods, only: [:index, :create, :new, :destroy]
 
   resources :recipes, only: [:index]
   resources :users do 
-    resources :recipes, except: [:update, :edit]
+    resources :recipes, except: [:update, :edit] do
+      resources :recipe_foods, only: [:new, :create]
+    end
     resources :foods, only: [:index, :create, :new, :destroy]
     # resources :foods, only: [:destroy]
   end
