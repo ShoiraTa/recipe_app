@@ -1,36 +1,57 @@
 
   <div class='col-sm-7 pb-2 mx-auto'>
-  <h1 > <%= @recipe.name %></h1> 
+    <h1 > <%= @recipe.name %></h1> 
     <small >by <%= @recipe.user.email %> </small> 
   </div>
+
 <div class="col-sm-7 border m-auto p-4"> 
-<div class="d-flex justify-content-between">
-  <h4 class="py-3">Preparation time: <%= @recipe.preparation_time %> min</h4>
-  <div class="form-check form-switch">
-     
-    <% if @recipe.public %>
-      <label class="form-check-label" for="flexSwitchCheckChecked">Public</label>
-      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked disabled>
-    <% else %>
-      <label class="form-check-label" for="flexSwitchCheckChecked">Public</label>
-      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" disabled>
-    <% end %>
+  <div class="d-flex justify-content-between">
+    <h4 class="py-3">Preparation time: <%= @recipe.preparation_time %> min</h4>
+    <div class="form-check form-switch">
+      
+      <% if @recipe.public %>
+        <label class="form-check-label" for="flexSwitchCheckChecked">Public</label>
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked disabled>
+      <% else %>
+        <label class="form-check-label" for="flexSwitchCheckChecked">Public</label>
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" disabled>
+      <% end %>
    
+    </div>
   </div>
-</div>
+
   <h4 class="py-3">Cooking time: <%= @recipe.cooking_time %> min</h4>
   <h4 class="py-3">Steps: </h4>
   <p> <%= @recipe.description %> </p>
 
   <div class="d-flex justify-content-between border-bottom border-3 py-4">
-    <%
-=begin%>
- <%= link_to "Generate shopping list", shooping_list_path ,class: "btn btn-secondary"%> 
-<%
-=end%>
+    <%= link_to "Generate shopping list", shopping_list_index_path,class: "btn btn-secondary"%> 
     <%= link_to "Add ingredients",  new_user_recipe_recipe_food_path(current_user.id, @recipe.id), class: "btn btn-secondary" %>
   </div>
 
+  <div class="row">
+    <div class="row">
+        <div class="col-3" >Food</div>
+        <div class="col-3">Quantity </div>
+        <div class="col-3">Value </div>
+        <div class="col-3">Actions</div>
+    </div>
+    
+    <div class="row">
+    <% @recipe_foods.each do |recipe_food| %>
+        <% food = Food.find(recipe_food.food_id) %>
+      <div class="row">
+          <div class="col-2"> <%= Food.find(recipe_food.food_id).name %> </div>
+          <div class="col-2"> <%= recipe_food.quantity %></div>
+          <div class="col-2"> <%= food.measurement_unit %></div>
+          <div class="col-2"> <%= button_to "Delete Food", user_food_path(current_user.id, food.id), method: :delete, 
+                    data: {confirm: 'Are you sure?'}, class: "btn btn-primary" %>
+            </div>
+      </div>
+    </div>
+          <% %>
+      <% end %>
+  </div>
 
 
 </div>
