@@ -23,8 +23,12 @@
   <p> <%= @recipe.description %> </p>
 
   <div class="d-flex justify-content-between border-bottom border-3 py-4">
-    <%= link_to "Generate shopping list", root_path ,class: "btn btn-secondary"%>
-    <%= link_to "Add ingredients", root_path, class: "btn btn-secondary" %>
+    <%
+=begin%>
+ <%= link_to "Generate shopping list", shooping_list_path ,class: "btn btn-secondary"%> 
+<%
+=end%>
+    <%= link_to "Add ingredients",  new_user_food_path(current_user.id), class: "btn btn-secondary" %>
   </div>
 
 
