@@ -14,4 +14,5 @@ class ShoppingListController < ApplicationController
   end
 
   helper_method :total_price
+
 end
