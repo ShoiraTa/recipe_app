@@ -16,8 +16,7 @@
 		<% @foods.each do |food| %>
 				<%= form_with(model: @recipe_food, url:"/users/#{current_user.id}/recipes/#{@recipe_id}/foods/#{food.id}/recipe_foods"  ) do |f| %>
 					<div class="row p-2 border border-1 p-4"> 
-						<%= f.object.errors.full_messages.join(", ") if f.object.errors.any? %>
-						<div class="col-3"> <%= food.name %> </div>
+                        <%= food.errors.full_messages.join(", ") if food.errors.any? %>						<div class="col-3"> <%= food.name %> </div>
 						<div class="col-3">	<%= food.measurement_unit%></div>
 						<div class="col-3">	<%= f.number_field :quantity%></div>
 

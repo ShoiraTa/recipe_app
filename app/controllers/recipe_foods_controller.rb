@@ -1,7 +1,6 @@
 class RecipeFoodsController < ApplicationController
   def new
     @recipe = Recipe.find(params[:recipe_id])
-    # @foods = Food.where.not(:id => @recipe_food.map(&:food_id) )
     @foods = Food.all
     @recipe_id = Recipe.find(params[:recipe_id]).id
     @recipe_food = RecipeFood.new
