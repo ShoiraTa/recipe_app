@@ -1,5 +1,8 @@
 class RecipeFoodsController < ApplicationController
   def new
+    @recipe = Recipe.find(params[:recipe_id])
+    # @foods = Food.where.not(:id => @recipe_food.map(&:food_id) )
+    @foods = Food.all
     @recipe_id = Recipe.find(params[:recipe_id]).id
     @recipe_food = RecipeFood.new
   end
@@ -17,6 +20,13 @@ class RecipeFoodsController < ApplicationController
       flash[:danger] = @recipe_food.errors.full_messages
       render 'new'
     end
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_food = RecipeFood.find(params[:id])
+    @recipe_food.destroy
+    redirect_to user_recipe_path(current_user.id, @recipe.id)
   end
 
   private
