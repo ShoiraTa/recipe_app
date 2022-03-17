@@ -33,6 +33,14 @@ To get a local copy up and running follow these simple example steps.
 - To run the rails server run  `rails s` in your command prompt.
 
 ## Author
+
+👤 **Karel van Oordt**
+
+- GitHub: [@karelvanoordt](https://github.com/karelvanoordt)
+- Twitter: [@karelvanoordt](https://twitter.com/karelvanoordt)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/karelvanoordt)
+![Karel's GitHub stats](https://github-readme-stats.vercel.app/api?username=shoiratakarelvanoordt&count_private=true&theme=dark&show_icons=true)
+
 👤 **Shoira**
 
 - GitHub: [@shoirata](https://github.com/shoirata)
