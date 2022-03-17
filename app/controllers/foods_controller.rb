@@ -9,7 +9,6 @@ class FoodsController < ApplicationController
 
   def show
     @foods = Food.all.where(user_id: current_user.id)
-    
   end
 
   def create
