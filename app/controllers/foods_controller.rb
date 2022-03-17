@@ -7,12 +7,16 @@ class FoodsController < ApplicationController
     @food = Food.new
   end
 
+  def show
+    @foods = Food.all.where(user_id: current_user.id)
+  end
+
   def create
     @food = Food.new(food_params)
     @food.user_id = current_user.id
     if @food.save
       flash[:success] = 'Food created succesfully'
-      redirect_to foods_path
+      redirect_to user_foods_path
 
     else
       render 'new'
@@ -23,7 +27,7 @@ class FoodsController < ApplicationController
     @food = Food.find_by(id: params[:id])
     @food.destroy
     flash[:success] = 'Food deleted'
-    redirect_to foods_path
+    redirect_to user_foods_path
   end
 
   private
