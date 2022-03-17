@@ -25,7 +25,7 @@
   <p> <%= @recipe.description %> </p>
 
   <div class="d-flex justify-content-between py-4 mb-3">
-    <%= link_to "Generate shopping list", shopping_list_index_path,class: "btn btn-outline-primary"%> 
+    <%= link_to "Generate shopping list", user_recipe_shopping_list_index_path(current_user.id, @recipe.id),class: "btn btn-outline-primary"%> 
     <%= link_to "Add ingredients",  new_user_recipe_recipe_food_path(current_user.id, @recipe.id), class: "btn btn-outline-primary" %>
   </div>
 
