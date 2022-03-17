@@ -1,0 +1,27 @@
+<h1 class='text-center mb-3'> Foods </h1>
+<div class = 'd-flex flex-column m-auto col-9 justify-content-center'>
+	<div class='align-center py-3' > 
+	<%= link_to 'New food', new_user_food_path(current_user.id), class: 'btn btn-outline-primary text-center' %>
+	<%= link_to 'Back to recipe', user_recipe_path(current_user.id,  @recipe.id), class: 'btn btn-outline-primary text-center' %>
+	
+	</div> 
+		
+		<div class="row bg-secondary text-white p-2"> 
+				<div class="col-3"> Food </div>
+				<div class="col-3">	Measurement Unit</div>
+				<div class="col-3">	Quantity</div>
+				<div class="col-3">Actions</div>
+		</div>
+
+		<% @foods.each do |food| %>
+				<%= form_with(model: @recipe_food, url:"/users/#{current_user.id}/recipes/#{@recipe_id}/foods/#{food.id}/recipe_foods"  ) do |f| %>
+					<div class="row p-2 border border-1 p-4"> 
+                        <%= food.errors.full_messages.join(", ") if food.errors.any? %>						<div class="col-3"> <%= food.name %> </div>
+						<div class="col-3">	<%= food.measurement_unit%></div>
+						<div class="col-3">	<%= f.number_field :quantity%></div>
+
+						<div class="col-3"><%= f.submit class: "btn btn-sm btn-warning submit-btn"%></div>
+					</div>
+			<% end %>
+		<% end %>
+</div>

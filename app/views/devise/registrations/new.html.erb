@@ -1,0 +1,51 @@
+
+
+ <div class="row form">
+  <h2 class="text-center mb-3">Sign up</h2>
+  <div class = "col-6 mx-auto">
+
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field form-group d-flex ">
+    <%= f.label :email , class: "col-sm-3 col-form-label text-start" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control  "  %>
+  </div>
+
+  <div class="field form-group d-flex my-3">
+ 
+    <div class="d-flex col-sm-3 flex-column">
+      <%= f.label "Password:",class: " col-form-label text-start p-0" %>
+      <% if @minimum_password_length %>
+      <small>minimum <%= @minimum_password_length %> chars.</small  >
+      <% end %>
+      </div>
+      <%= f.password_field :password, autocomplete: "new-password",class:"form-control "  %>
+    </div>
+
+    <div class="actions  form-group d-flex" >
+      <%= f.label :password_confirmation, class: "col-sm-3 col-form-label text-start" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"form-control "  %>
+    </div>
+
+    <div class="actions  form-group d-flex" >
+      <div class= "col-sm-2  mx-4"></div>
+      <%= f.submit "Sign up", class: "btn btn-primary my-3" %>
+    </div>
+
+  </div>
+<% end %>
+  <div class="actions  form-group d-flex" >
+    <div class= "col-sm-2  mx-4"></div>
+    <%= render "devise/shared/links" %>
+  </div>
+
+</div>
+
+<ul>
+  <li>
+    <a href="#" class="icon1"><img src="Img/github.png" alt="github"></a>
+  </li>
+</ul>
+

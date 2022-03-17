@@ -1,0 +1,37 @@
+<h1 class='text-center mb-3'> Foods </h1>
+
+
+    <div class = 'col-8 d-flex flex-column margin-auto justify-content-center mx-auto'>
+
+        <div class='align-center p-5' > <%= link_to 'New food', new_user_food_path(current_user.id), class: 'btn btn-primary text-center' %></div> 
+
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Food</th>
+            <th scope="col">Measurement Unit</th>
+            <th scope="col">Price</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <% current_user.foods.each do |food| %>
+            <tr>
+            <td><%= food.name %></td>
+            <td><%= food.measurement_unit %></td>
+            <td><%= food.price %></td>
+            <td><%= button_to "Delete Food", user_food_path(current_user.id, food.id), method: :delete, 
+                    data: {confirm: 'Are you sure?'}, class: "btn btn-primary" %> </td>
+            
+            </tr>
+            <% end %>
+        </tbody>
+
+
+        </table>
+
+    </div>
+
+
+

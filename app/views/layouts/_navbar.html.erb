@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+<div class="w-full d-flex justify-content-between px-4" id="navbarSupportedContent">
+  <% if user_signed_in? %>
+  <ul class="navbar-nav mr-auto">
+    <li> <%= link_to 'Public recipes', root_path, class: 'nav-link' %></li> 
+    <li> <%= link_to 'New recipe', new_user_recipe_path(user_id: current_user.id), class: 'nav-link' %></li> 
+    <li> <%= link_to 'My Recipes', user_recipes_path(user_id: current_user.id), class: 'nav-link' %></li> 
+    <li> <%= link_to 'Foods', user_foods_path(current_user.id), class: 'nav-link' %> </li>
+  </ul>
+
+  <ul class="navbar-nav mr-auto">
+    <li><%= link_to "Log out", destroy_user_session_path, :method => :delete, class: 'nav-link' %></li>
+  </ul>
+
+  <% end %>
+  </div>
+</nav>
